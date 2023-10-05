@@ -1,0 +1,155 @@
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+ */
+
+/* CSS pour l'effet de fondu */
+.fade-in {
+    opacity: 0;
+    /* L'élément est initialement invisible */
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        /* Début de l'animation : opacité à 0 */
+    }
+
+    100% {
+        opacity: 1;
+        /* Fin de l'animation : opacité à 1 */
+    }
+}
+
+/*Ajoutez fleurs qui tournent en continue*/
+
+article.story__article::after,
+h2::before,
+h2::after,
+.site-footer::before,
+.site-footer::after {
+
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ajout section nomination Oscar*/
+/* Les personnages */
+#oscars {
+    position: absolute;
+    width: 965px;
+    height: 200px;
+    left: 243px;
+    top: 3677px;
+    background-color: #FF5C00;
+    filter: blur(21.7003px);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Rectangle 23 */
+#oscars .container {
+    position: absolute;
+    width: 674.18px;
+    height: 196.05px;
+    left: 243px;
+    top: 3677.43px;
+    background: #FF5C00;
+    filter: blur(21.7003px);
+}
+
+/* Fleurs d’oranger & chats errants est nominé aux Oscars Short Film Animated de 2022 ! */
+#oscars h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 52px;
+    letter-spacing: -0.02em;
+    color: #FFF5E9;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* 18-courts-metrages-francais-d-animation-eligibles-aux-oscars-2021 1 */
+.oscars_img {
+    position: absolute;
+    width: 278px;
+    height: 129px;
+    left: 930px;
+    top: 3677px;
+    background: url('images/18-courts-metrages-francais-d-animation-eligibles-aux-oscars-2021.png');
+    mix-blend-mode: darken;
+}
+
+
+/*deplacements des nuages de gauche a droite*/
+.story #place {
+    /* ligne 819 css*/
+    display: flex;
+    background-image: url("images/Studio_Koukaki-image_place.png");
+    width: 100%;
+    min-height: 699px;
+    background-size: cover;
+
+}
+
+.cloud-container {
+    display: flex;
+    align-items: center;
+}
+
+.clouds {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.big-cloud {
+    position: absolute;
+    top: 0px;
+    left: 350px;
+    width: 266px;
+    z-index: 1;
+    padding-top: 60px;
+    filter: blur(10px);
+
+
+}
+
+.little-cloud {
+    position: absolute;
+    top: 65px;
+    width: 140px;
+    z-index: 2;
+    padding-top: 185px;
+    filter: blur(10px);
+}
+
+/* Animation pour les nuages + voir js */
+@keyframes move-cloud {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -300px;
+    }
+}
+
+.big-cloud.animate,
+.little-cloud.animate {
+    animation-name: move-cloud;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
