@@ -12,7 +12,7 @@
 .fade-in {
     opacity: 0;
     /* L'élément est initialement invisible */
-    animation: fadeIn 1s ease-in-out forwards;
+    animation: fadeIn 3s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
@@ -28,7 +28,7 @@
 }
 
 /*Ajoutez fleurs qui tournent en continue*/
-
+.footer_flower,
 article.story__article::after,
 h2::before,
 h2::after,
@@ -44,14 +44,101 @@ h2::after,
     }
 }
 
+/*video banniere et logo*/
+/* Styles pour la section de la bannière */
+.banner {
+    position: relative;
+    height: 50vh;
+    overflow: hidden;
+}
+
+/* Style pour la vidéo en arrière-plan */
+.banner video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Style pour le logo avec animation de flottement */
+.banner img {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    height: auto;
+    animation-name: floating;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 10px;
+}
+
+/* Définissez l'animation de flottement */
+@keyframes floating {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    50% {
+        transform: translate(10px, -10px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+
+/* effet parallax + script.js*/
+.parallax {
+    position: relative;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    /* Centrez horizontalement */
+    align-items: center;
+    /* Centrez verticalement */
+}
+
+.parallax video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Style pour le logo dans la section de parallax */
+.parallax img {
+    position: relative;
+    z-index: 2;
+    max-width: 50%;
+    /* Ajustez la largeur au besoin */
+    height: auto;
+    animation-name: floating;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 10px;
+}
+
+
+
+
+
 /* ajout section nomination Oscar*/
 /* Les personnages */
 #oscars {
-    position: absolute;
-    width: 965px;
-    height: 200px;
-    left: 243px;
-    top: 3677px;
+    position: relative;
+    width: 50%;
+    /* Utilisez des valeurs relatives */
+    margin: 0 auto;
+    /* Centrez horizontalement */
     background-color: #FF5C00;
     filter: blur(21.7003px);
     padding: 20px;
@@ -61,13 +148,14 @@ h2::after,
 /* Rectangle 23 */
 #oscars .container {
     position: absolute;
-    width: 674.18px;
-    height: 196.05px;
-    left: 243px;
-    top: 3677.43px;
+    width: 50%;
+    /* Utilisez des valeurs relatives */
+    margin: 0 auto;
+    /* Centrez horizontalement */
     background: #FF5C00;
     filter: blur(21.7003px);
 }
+
 
 /* Fleurs d’oranger & chats errants est nominé aux Oscars Short Film Animated de 2022 ! */
 #oscars h3 {
@@ -92,8 +180,12 @@ h2::after,
     mix-blend-mode: darken;
 }
 
+/***********coverflow personnage**********/
 
-/*deplacements des nuages de gauche a droite*/
+
+
+
+/***********deplacements des nuages de gauche a droite***********/
 .story #place {
     /* ligne 819 css*/
     display: flex;
@@ -152,4 +244,244 @@ h2::after,
     animation-name: move-cloud;
     animation-duration: 3s;
     animation-iteration-count: 1;
+}
+
+/********footer flower hibiscus*****/
+.footer_flower {
+    position: absolute;
+    left: calc(50% - 323px);
+    bottom: -28.5em;
+    z-index: -1;
+    animation: spin 18s linear infinite;
+}
+
+/***********************burger menu *************************************/
+#ham {
+    color: #FFD5A2;
+    ;
+}
+
+.navbar {
+    width: 100%;
+    height: 120vh;
+    display: none;
+}
+
+.navbar ul {
+    overflow: hidden;
+    list-style-type: none;
+    margin: 0px;
+    text-align: center;
+}
+
+.navbar li {
+    display: block;
+    margin: 0;
+    padding: 5% 50px;
+    width: 100%;
+}
+
+.navbar li a {
+    color: #000;
+    text-decoration: none;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 40px !important;
+    transition: all .5s;
+    line-height: 84px !important;
+    font-weight: 400;
+}
+
+.navbar li:hover {
+    cursor: pointer;
+    text-shadow: #ff5c00 0px 0px 14px;
+}
+
+#hamburger {
+    padding: 0;
+    transition: opacity .3s;
+    position: absolute;
+    width: 40px;
+    height: 0px;
+    left: 1268px;
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+}
+
+#hamburger:hover {
+    cursor: pointer;
+    opacity: .5;
+}
+
+#hamburger .line {
+    width: 40px;
+    height: 5px;
+    margin: 8px auto;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+#hamburger .line:nth-child(1),
+#hamburger .line:nth-child(2),
+#hamburger .line:nth-child(3) {
+    background-color: black;
+}
+
+#hamburger.isactive .line:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger.isactive .line:nth-child(1) {
+    transform: translateY(13px) rotate(45deg);
+}
+
+#hamburger.isactive .line:nth-child(3) {
+    transform: translateY(-13px) rotate(-45deg);
+}
+
+.navbar {
+    transition: all 2s ease-in-out;
+}
+
+.navbar.active {
+
+    animation: fade .7s;
+    position: absolute;
+    z-index: 10;
+    min-height: calc(100vh - 50px);
+    background: #FFF5E9;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+@keyframes fade {
+    from {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.container-1 {
+    background-size: contain;
+    padding: 50px;
+    background-color: #FFD5A2;
+    position: relative;
+    z-index: 999;
+}
+
+.footer-logo-img img {
+    position: absolute;
+    bottom: 15px;
+    left: 48%;
+}
+
+.burger-menu-footer-link {
+    list-style: none;
+    font-size: medium;
+    text-align: center;
+}
+
+#home-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    left: 500px;
+}
+
+.images-menu img {
+    position: absolute;
+}
+
+.images-menu .chat {
+    width: 10%;
+}
+
+.orange {
+    top: 40em;
+    left: 4em;
+    animation: float 7s -3s cubic-bezier(0.43, 0.08, 0.61, 0.99) infinite;
+}
+
+.noir {
+    top: 30em;
+    left: 75em;
+    animation: float 6s cubic-bezier(0.43, 0.08, 0.61, 0.99) infinite;
+
+}
+
+.bleu {
+    top: 9em;
+    left: 19em;
+    animation: float 6s ease-in-out infinite;
+}
+
+.rose {
+    top: 20em;
+    left: 98em;
+    width: 4%;
+    animation: spin 18s linear infinite;
+}
+
+.violette {
+    top: 5em;
+    left: -3.5em;
+    width: 10%;
+    animation: spin 18s linear infinite;
+}
+
+.hibiscus {
+    top: 39.3em;
+    left: 80.2em;
+    width: 20%;
+}
+
+.tournesol {
+    top: 6em;
+    left: 74em;
+    animation: spin 18s linear infinite;
+}
+
+.jaune {
+    top: 30em;
+    left: 23em;
+    width: 5%;
+    animation: spin 18s linear infinite;
+}
+
+.logo_burger {
+    top: 1em;
+    left: 46em;
+    width: 12%;
+
+}
+
+@keyframes float {
+    0% {
+
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-20px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+
 }
