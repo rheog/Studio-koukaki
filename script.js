@@ -10,6 +10,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+/* parallax+css*/
+const parallax = document.querySelector('.parallax');
+const video = document.querySelector('.parallax video');
+const logo = document.querySelector('.parallax img');
+
+window.addEventListener('scroll', () => {
+    const scrollValue = window.scrollY;
+    const videoPosition = scrollValue * 0.5;
+    const logoPosition = -scrollValue * 0.5;
+
+    video.style.transform = `translateY(${videoPosition}px)`;
+    logo.style.transform = `translateY(${logoPosition}px)`;
+});
+
+/*coverflow*/
+
+
+
+
 /*animations des 2 nuages*/
 const bigCloud = document.querySelector('.big-cloud');
 const littleCloud = document.querySelector('.little-cloud');
@@ -35,4 +54,13 @@ const animateCloudsOnScroll = () => {
 
 window.addEventListener('scroll', animateCloudsOnScroll);
 
+/******* burger menu********/
 
+let hamburger = document.querySelector('#hamburger');
+let menu = document.querySelector('.navbar');
+let bod = document.querySelector('.container-1');
+
+hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('isactive');
+    menu.classList.toggle('active');
+});
